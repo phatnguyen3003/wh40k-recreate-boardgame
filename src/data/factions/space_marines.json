@@ -1,0 +1,110 @@
+{
+  "faction": "Space Marines",
+  "faction_keywords": ["IMPERIUM", "ADEPTUS_ASTARTES", "SPACE_MARINES"],
+  "units": [
+    {
+      "unit_id": "sm_intercessors",
+      "name": "Intercessor Squad",
+      "keywords": ["INFANTRY", "TACTICUS", "INTERCESSORS"],
+      "stats": {
+        "movement": 6,
+        "toughness": 4,
+        "save": 3,
+        "invulnerable_save": null,
+        "wounds_per_model": 2,
+        "leadership": 6,
+        "objective_control": 2
+      },
+      "base_size_mm": 32,
+      "models": [
+        { "id": "sm_int_1", "is_leader": false },
+        { "id": "sm_int_2", "is_leader": false },
+        { "id": "sm_int_3", "is_leader": false },
+        { "id": "sm_int_4", "is_leader": false },
+        { "id": "sm_int_5", "is_leader": false }
+      ],
+      "weapons": [
+        {
+          "weapon_id": "bolt_rifle",
+          "name": "Bolt Rifle",
+          "type": "RANGED",
+          "range": 24,
+          "attacks": "2",
+          "skill": 3,
+          "strength": 4,
+          "ap": -1,
+          "damage": "1",
+          "abilities": ["ASSAULT", "HEAVY"]
+        },
+        {
+          "weapon_id": "bolt_pistol",
+          "name": "Bolt Pistol",
+          "type": "RANGED",
+          "range": 12,
+          "attacks": "1",
+          "skill": 3,
+          "strength": 4,
+          "ap": 0,
+          "damage": "1",
+          "abilities": ["PISTOL"]
+        },
+        {
+          "weapon_id": "close_combat_weapon",
+          "name": "Close Combat Weapon",
+          "type": "MELEE",
+          "range": 0,
+          "attacks": "1",
+          "skill": 3,
+          "strength": 4,
+          "ap": 0,
+          "damage": "1",
+          "abilities": []
+        }
+      ]
+    },
+    {
+      "unit_id": "sm_captain",
+      "name": "Captain",
+      "keywords": ["INFANTRY", "CHARACTER", "TACTICUS", "CAPTAIN"],
+      "stats": {
+        "movement": 6,
+        "toughness": 5,
+        "save": 3,
+        "invulnerable_save": 4,
+        "wounds_per_model": 5,
+        "leadership": 6,
+        "objective_control": 3
+      },
+      "base_size_mm": 40,
+      "models": [
+        { "id": "sm_cap_1", "is_leader": true }
+      ],
+      "weapons": [
+        {
+          "weapon_id": "master_crafted_bolt_rifle",
+          "name": "Master-crafted Bolt Rifle",
+          "type": "RANGED",
+          "range": 24,
+          "attacks": "2",
+          "skill": 2,
+          "strength": 4,
+          "ap": -2,
+          "damage": "2",
+          "abilities": ["HEAVY"]
+        },
+        {
+          "weapon_id": "power_sword",
+          "name": "Power Sword",
+          "type": "MELEE",
+          "range": 0,
+          "attacks": "5",
+          "skill": 2,
+          "strength": 5,
+          "ap": -3,
+          "damage": "2",
+          "abilities": []
+        }
+      ]
+    }
+  ]
+}

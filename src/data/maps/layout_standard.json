@@ -1,0 +1,112 @@
+{
+  "map_id": "map_strike_force_01",
+  "name": "Ruins of Oghram",
+  "dimensions": {
+    "width_inches": 60,
+    "height_inches": 44
+  },
+  "deployment_zones": {
+    "type": "DAWN_OF_WAR",
+    "player_1": { "min_x": 0, "max_x": 60, "min_y": 0, "max_y": 12 },
+    "player_2": { "min_x": 0, "max_x": 60, "min_y": 32, "max_y": 44 }
+  },
+  "objectives": [
+    { "id": "obj_center", "x": 30, "y": 22 },
+    { "id": "obj_top_left", "x": 12, "y": 10 },
+    { "id": "obj_top_right", "x": 48, "y": 10 },
+    { "id": "obj_bottom_left", "x": 12, "y": 34 },
+    { "id": "obj_bottom_right", "x": 48, "y": 34 }
+  ],
+  "terrain_pieces": [
+    {
+      "id": "ruin_large_1",
+      "type": "RUINS",
+      "shape": "POLYGON",
+      "vertices": [
+        { "x": 18, "y": 16 },
+        { "x": 26, "y": 16 },
+        { "x": 26, "y": 22 },
+        { "x": 18, "y": 22 }
+      ],
+      "walls": [
+        { "from": { "x": 18, "y": 16 }, "to": { "x": 26, "y": 16 } },
+        { "from": { "x": 26, "y": 16 }, "to": { "x": 26, "y": 22 } },
+        { "from": { "x": 26, "y": 22 }, "to": { "x": 18, "y": 22 } },
+        { "from": { "x": 18, "y": 22 }, "to": { "x": 18, "y": 16 } }
+      ],
+      "is_obscuring": true,
+      "provides_cover": true
+    },
+    {
+      "id": "ruin_large_2",
+      "type": "RUINS",
+      "shape": "POLYGON",
+      "vertices": [
+        { "x": 34, "y": 22 },
+        { "x": 42, "y": 22 },
+        { "x": 42, "y": 28 },
+        { "x": 34, "y": 28 }
+      ],
+      "walls": [
+        { "from": { "x": 34, "y": 22 }, "to": { "x": 42, "y": 22 } },
+        { "from": { "x": 42, "y": 22 }, "to": { "x": 42, "y": 28 } },
+        { "from": { "x": 42, "y": 28 }, "to": { "x": 34, "y": 28 } },
+        { "from": { "x": 34, "y": 28 }, "to": { "x": 34, "y": 22 } }
+      ],
+      "is_obscuring": true,
+      "provides_cover": true
+    },
+    {
+      "id": "ruin_small_1",
+      "type": "RUINS",
+      "shape": "POLYGON",
+      "vertices": [
+        { "x": 8, "y": 18 },
+        { "x": 13, "y": 18 },
+        { "x": 13, "y": 23 },
+        { "x": 8, "y": 23 }
+      ],
+      "walls": [
+        { "from": { "x": 8, "y": 18 }, "to": { "x": 13, "y": 18 } },
+        { "from": { "x": 13, "y": 18 }, "to": { "x": 13, "y": 23 } },
+        { "from": { "x": 13, "y": 23 }, "to": { "x": 8, "y": 23 } },
+        { "from": { "x": 8, "y": 23 }, "to": { "x": 8, "y": 18 } }
+      ],
+      "is_obscuring": true,
+      "provides_cover": true
+    },
+    {
+      "id": "ruin_small_2",
+      "type": "RUINS",
+      "shape": "POLYGON",
+      "vertices": [
+        { "x": 47, "y": 16 },
+        { "x": 52, "y": 16 },
+        { "x": 52, "y": 21 },
+        { "x": 47, "y": 21 }
+      ],
+      "walls": [
+        { "from": { "x": 47, "y": 16 }, "to": { "x": 52, "y": 16 } },
+        { "from": { "x": 52, "y": 16 }, "to": { "x": 52, "y": 21 } },
+        { "from": { "x": 52, "y": 21 }, "to": { "x": 47, "y": 21 } },
+        { "from": { "x": 47, "y": 21 }, "to": { "x": 47, "y": 16 } }
+      ],
+      "is_obscuring": true,
+      "provides_cover": true
+    },
+    {
+      "id": "barricade_center",
+      "type": "BARRICADE",
+      "shape": "POLYGON",
+      "vertices": [
+        { "x": 27, "y": 20 },
+        { "x": 33, "y": 20 },
+        { "x": 33, "y": 24 },
+        { "x": 27, "y": 24 }
+      ],
+      "walls": [],
+      "is_obscuring": false,
+      "provides_cover": true
+    }
+  ]
+}

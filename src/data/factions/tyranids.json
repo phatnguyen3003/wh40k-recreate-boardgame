@@ -1,0 +1,91 @@
+{
+  "faction": "Tyranids",
+  "faction_keywords": ["TYRANIDS"],
+  "units": [
+    {
+      "unit_id": "tyr_termagants",
+      "name": "Termagant Brood",
+      "keywords": ["INFANTRY", "SWARM", "TERMAGANTS"],
+      "stats": {
+        "movement": 6,
+        "toughness": 3,
+        "save": 6,
+        "invulnerable_save": null,
+        "wounds_per_model": 1,
+        "leadership": 6,
+        "objective_control": 1
+      },
+      "base_size_mm": 25,
+      "models": [
+        { "id": "tyr_ter_1", "is_leader": false },
+        { "id": "tyr_ter_2", "is_leader": false },
+        { "id": "tyr_ter_3", "is_leader": false },
+        { "id": "tyr_ter_4", "is_leader": false },
+        { "id": "tyr_ter_5", "is_leader": false },
+        { "id": "tyr_ter_6", "is_leader": false },
+        { "id": "tyr_ter_7", "is_leader": false },
+        { "id": "tyr_ter_8", "is_leader": false },
+        { "id": "tyr_ter_9", "is_leader": false },
+        { "id": "tyr_ter_10", "is_leader": false }
+      ],
+      "weapons": [
+        {
+          "weapon_id": "fleshborer",
+          "name": "Fleshborer",
+          "type": "RANGED",
+          "range": 18,
+          "attacks": "1",
+          "skill": 5,
+          "strength": 3,
+          "ap": 0,
+          "damage": "1",
+          "abilities": []
+        }
+      ]
+    },
+    {
+      "unit_id": "tyr_warrior",
+      "name": "Tyranid Warrior",
+      "keywords": ["INFANTRY", "CHARACTER", "WARRIOR"],
+      "stats": {
+        "movement": 5,
+        "toughness": 5,
+        "save": 4,
+        "invulnerable_save": null,
+        "wounds_per_model": 3,
+        "leadership": 7,
+        "objective_control": 2
+      },
+      "base_size_mm": 40,
+      "models": [
+        { "id": "tyr_war_1", "is_leader": true }
+      ],
+      "weapons": [
+        {
+          "weapon_id": "devourer",
+          "name": "Devourer",
+          "type": "RANGED",
+          "range": 18,
+          "attacks": "3",
+          "skill": 3,
+          "strength": 4,
+          "ap": 0,
+          "damage": "1",
+          "abilities": []
+        },
+        {
+          "weapon_id": "boneswords",
+          "name": "Boneswords",
+          "type": "MELEE",
+          "range": 0,
+          "attacks": "4",
+          "skill": 3,
+          "strength": 6,
+          "ap": -2,
+          "damage": "2",
+          "abilities": ["SUSTAINED_HITS_1"]
+        }
+      ]
+    }
+  ]
+}
