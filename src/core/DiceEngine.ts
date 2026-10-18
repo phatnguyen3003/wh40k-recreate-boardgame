@@ -105,4 +105,49 @@ export class DiceEngine {
 
     return rerolled;
   }
+
+  rollD3(): number {
+    // D3 = tung D6 roi chia doi (1-2→1, 3-4→2, 5-6→3), phân phối đều 1..3
+    return Math.floor(this.rng() * 3) + 1;
+  }
+
+  private rollDie(sides: number): number {
+    return Math.floor(this.rng() * sides) + 1;
+  }
+
+  /**
+   * Đánh giá biểu thức xúc xắc dạng chuỗi từ datasheet (VD: "2", "D3", "D6", "2D6", "D6+1").
+   * Trả về kết quả số nguyên sau khi gieo. Ném lỗi nếu biểu thức không hợp lệ.
+   */
+  evaluateDiceExpression(expression: string): number {
+    if (typeof expression !== 'string') {
+      throw new Error('DiceEngine.evaluateDiceExpression: expression must be a string');
+    }
+
+    // Chuẩn hóa: bỏ khoảng trắng, viết hoa (VD: " 2d6 + 1 " -> "2D6+1")
+    const normalized = expression.replace(/\s+/g, '').toUpperCase();
+
+    // Dạng xúc xắc: [count]D[sides][+/-modifier] (count mặc định = 1)
+    const diceMatch = normalized.match(/^(\d*)D(\d+)([+-]\d+)?$/);
+    if (diceMatch) {
+      const count = diceMatch[1] === '' ? 1 : parseInt(diceMatch[1], 10);
+      const sides = parseInt(diceMatch[2], 10);
+      const modifier = diceMatch[3] ? parseInt(diceMatch[3], 10) : 0;
+
+      let total = 0;
+      for (let i = 0; i < count; i++) {
+        total += this.rollDie(sides);
+      }
+      // Sát thương không thể âm sau khi áp modifier
+      return Math.max(0, total + modifier);
+    }
+
+    // Dạng số cố định: "2", "1"
+    const flat = Number(normalized);
+    if (!Number.isNaN(flat)) {
+      return flat;
+    }
+
+    throw new Error(`DiceEngine.evaluateDiceExpression: invalid expression "${expression}"`);
+  }
 }

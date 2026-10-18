@@ -92,27 +92,27 @@ Phase 6: Tích hợp WebSocket Host & Cloudflare Tunnel
 
 ### GIAI ĐOẠN 2: Động Cơ Giao Tranh & Kiểm Thử Headless (Rules & Combat)
 *Mục tiêu: Đảm bảo toàn bộ luật tính toán sát thương chính xác 100% trước khi đụng vào đồ họa.*
-- [ ] **`src/rules/WoundChart.ts`**: Hàm so sánh $S$ vs $T$ trả về ngưỡng xúc xắc mục tiêu (`2+, 3+, 4+, 5+, 6+`).
-- [ ] **`src/rules/KeywordHandlers.ts`**: Plugin xử lý từ khóa đặc biệt (`Lethal Hits`, `Devastating Wounds`, `Sustained Hits`, `Blast`, `Feel No Pain`).
-- [ ] **`src/rules/CombatPipeline.ts`**: Chuỗi 4 bước tuần tự: Hit $\rightarrow$ Wound $\rightarrow$ Save (chọn Save trừ AP hoặc Invuln) $\rightarrow$ Allocate Damage.
-- [ ] **`src/rules/BattleShockRule.ts`**: Kiểm tra Ld trên 2D6 khi đơn vị dưới 50% quân số.
-- [ ] **`src/testing/CombatSimulator.ts`**:
-  - [ ] Viết Unit Test bằng Vitest: Kiểm tra ma trận $S$ vs $T$.
-  - [ ] Viết kiểm tra tự động cho từng Keyword.
-  - [ ] Chạy mô phỏng Monte Carlo 10.000 lượt bắn so khớp với giá trị kỳ vọng lý thuyết.
+- [x] **`src/rules/WoundChart.ts`**: Hàm so sánh $S$ vs $T$ trả về ngưỡng xúc xắc mục tiêu (`2+, 3+, 4+, 5+, 6+`).
+- [x] **`src/rules/KeywordHandlers.ts`**: Plugin xử lý từ khóa đặc biệt (`Lethal Hits`, `Devastating Wounds`, `Sustained Hits`, `Blast`, `Feel No Pain`).
+- [x] **`src/rules/CombatPipeline.ts`**: Chuỗi 4 bước tuần tự: Hit $\rightarrow$ Wound $\rightarrow$ Save (chọn Save trừ AP hoặc Invuln) $\rightarrow$ Allocate Damage.
+- [x] **`src/rules/BattleShockRule.ts`**: Kiểm tra Ld trên 2D6 khi đơn vị dưới 50% quân số.
+- [x] **`src/testing/CombatSimulator.ts`**:
+  - [x] Viết Unit Test bằng Vitest: Kiểm tra ma trận $S$ vs $T$.
+  - [x] Viết kiểm tra tự động cho từng Keyword.
+  - [x] Chạy mô phỏng Monte Carlo 10.000 lượt bắn so khớp với giá trị kỳ vọng lý thuyết.
 
 ---
 
 ### GIAI ĐOẠN 3: Không Gian 2D & Canvas Renderer (Spatial & Graphics)
-- [ ] **`src/spatial/Measurement.ts`**: Quy đổi tỉ lệ $1" = 20\text{ px}$, tính khoảng cách Base-to-base giữa 2 hình tròn.
-- [ ] **`src/spatial/Collision2D.ts`**: Chống đè đế mô hình, chống đi xuyên tường kín.
-- [ ] **`src/spatial/LineOfSight2D.ts`**: Raycasting 2D kiểm tra cản tầm nhìn qua khối đa giác Ruins (Obscuring check).
-- [ ] **`src/spatial/CoherencyValidator.ts`**: Thuật toán đồ thị đảm bảo mỗi lính cách đồng đội $\le 2"$.
-- [ ] **`src/ui/MapRenderer.ts`**: Vẽ mặt sa bàn, vạch xuất quân, khối phế tích và điểm cờ lên Canvas.
-- [ ] **`src/ui/CanvasRenderer.ts`**: Vẽ mô hình lính (đế tròn màu phe, thanh máu nhỏ).
-- [ ] **`src/ui/RangeRingOverlay.ts`**: Vẽ vòng tròn bán kính di chuyển $M"$, tầm bắn và viền $1"$.
-- [ ] **`src/ui/InputController.ts`**: Bắt sự kiện chuột: Click chọn đơn vị, kéo thả di chuyển mô hình.
-- [ ] **`src/testing/SpatialTester.ts`**: Test đo cự ly, test tia raycast bị nhà che khuất, test cảnh báo đứt đội hình.
+- [x] **`src/spatial/Measurement.ts`**: Quy đổi tỉ lệ $1" = 20\text{ px}$, tính khoảng cách Base-to-base giữa 2 hình tròn.
+- [x] **`src/spatial/Collision2D.ts`**: Chống đè đế mô hình, chống đi xuyên tường kín.
+- [x] **`src/spatial/LineOfSight2D.ts`**: Raycasting 2D kiểm tra cản tầm nhìn qua khối đa giác Ruins (Obscuring check).
+- [x] **`src/spatial/CoherencyValidator.ts`**: Thuật toán đồ thị đảm bảo mỗi lính cách đồng đội $\le 2"$.
+- [x] **`src/ui/MapRenderer.ts`**: Vẽ mặt sa bàn, vạch xuất quân, khối phế tích và điểm cờ lên Canvas.
+- [x] **`src/ui/CanvasRenderer.ts`**: Vẽ mô hình lính (đế tròn màu phe, thanh máu nhỏ).
+- [x] **`src/ui/RangeRingOverlay.ts`**: Vẽ vòng tròn bán kính di chuyển $M"$, tầm bắn và viền $1"$.
+- [x] **`src/ui/InputController.ts`**: Bắt sự kiện chuột: Click chọn đơn vị, kéo thả di chuyển mô hình.
+- [x] **`src/testing/SpatialTester.ts`**: Test đo cự ly, test tia raycast bị nhà che khuất, test cảnh báo đứt đội hình.
 
 ---
 
@@ -227,6 +227,50 @@ Phase 6: Tích hợp WebSocket Host & Cloudflare Tunnel
      } else {
        woundTarget = 6;
      }
+     ```
+7. **Quy Chuẩn Viết Test (Test Authoring Standards)**:
+   * Mọi file test nằm trong `src/testing/`, đặt tên `<module>.test.ts`, dùng chung framework **Vitest** (`describe` / `it` / `it.each` / `expect`).
+   * **Cấu trúc file bắt buộc theo thứ tự**:
+     1. Khối header `// ⚙️ TEST CONFIGURATION & FIXTURES` — tóm tắt **luật chơi đang kiểm chứng** bằng comment, khai báo hằng số test (`*_TEST_CONFIG`) và các hàm fixture (`makeWeapon`, `makeTarget`, `makeShockUnit`, `buildTestUnit`...).
+     2. Bảng dữ liệu test (data-driven) có type rõ ràng.
+     3. Khối `// 📦 MODULE IMPLEMENTATION (TEST SUITES)` — các `describe` / `it`.
+   * **Ưu tiên data-driven bằng `it.each`**: mọi nhóm ca test cùng dạng phải gom vào một bảng. Mỗi phần tử bảng là một object có tối thiểu 2 trường:
+     * `name` — chuỗi ngắn mô tả ca test (dùng làm tên qua `it.each(cases)('$name', ...)`).
+     * `note` — giải thích **luật/quy tắc và lý do kỳ vọng** (ví dụ: `'S4 vs T4 → 4+; 2×(4/6)×(3/6)×(3/6) = 1/3'`).
+     * Truyền `note` làm tham số thứ hai của `expect(actual, note).toBe(...)` để khi test đỏ, log in ra luôn cả căn cứ luật.
+   * **Bắt buộc bao phủ ca biên (edge cases)** cho mỗi hàm: giá trị 0 / rỗng, đúng ngưỡng (`>=` vs `>`), kém/vượt ngưỡng 1 đơn vị, ngưỡng không nguyên (ví dụ nửa quân số của unit lẻ), danh sách rỗng, và các nhánh `if` ít gặp.
+   * **Comment giải thích trong test** theo đúng tinh thần quy chuẩn #6: nêu rõ công thức, hằng số luật chơi, và giá trị kỳ vọng. Không viết comment vô nghĩa.
+   * **Nguồn xúc xắc phải tất định**:
+     * Test chuỗi logic (pipeline Hit→Wound→Save→Damage, Battle-shock): dùng `createDeterministicRng([...])` — chuỗi mặt xúc xắc nạp sẵn, quấn vòng.
+     * Test thống kê (Monte Carlo, Feel No Pain): dùng PRNG tất định `mulberry32(seed)` để kết quả lặp lại được giữa các lần chạy.
+   * **Test thống kê phải nới dung sai hợp lý**: dùng `toBeCloseTo(value, -2 / -3)` kèm comment ước lượng độ lệch chuẩn (ví dụ `// ±500 ≈ 7σ`); **tuyệt đối không** so khớp chính xác tuyệt đối giá trị ngẫu nhiên.
+   * **Đối chiếu chéo (cross-reference) & property-based**: với hàm luật chơi (Wound chart, xác suất), viết thêm một hàm tham chiếu độc lập (diễn đạt khác) để đối chiếu, đồng thời kiểm tra bất biến (monotonicity, tập giá trị hợp lệ `∈ {2,3,4,5,6}`, đối xứng...).
+   * **Đồng bộ với API nguồn**: đọc kỹ implementation trước khi viết test để khớp đúng hành vi thật (ví dụ: `applyFeelNoPain` coi threshold `0` là "không có FNP"; điều kiện dưới 50% quân số là `alive < initial * 0.5`).
+   * **Bắt buộc xác minh trước khi kết thúc**: chạy lần lượt `npx tsc --noEmit` → `npm test` → `npm run build`; cả ba phải sạch mới coi là hoàn thành.
+   * **Mẫu bảng test chuẩn**:
+     ```typescript
+     interface WoundCase {
+       name: string;   // tên ca test hiển thị
+       note: string;   // giải thích luật & lý do kỳ vọng
+       strength: number;
+       toughness: number;
+       expected: number;
+     }
+
+     const cases: WoundCase[] = [
+       // S >= 2T → 2+ (strength áp đảo toughness)
+       { name: 'S8 vs T4 (S >= 2T) → 2+', note: '8 >= 2×4', strength: 8, toughness: 4, expected: 2 },
+       // Biên: đúng ngưỡng S = 2T
+       { name: 'Biên S6 vs T3 (S = 2T) → 2+', note: 'dấu bằng vẫn tính 2+', strength: 6, toughness: 3, expected: 2 },
+       // S = T → 4+
+       { name: 'S4 vs T4 (S = T) → 4+', note: 'strength bằng toughness', strength: 4, toughness: 4, expected: 4 },
+     ];
+
+     describe('WoundChart.getWoundTarget — bảng ca dữ liệu', () => {
+       it.each(cases)('$name', (c) => {
+         expect(WoundChart.getWoundTarget(c.strength, c.toughness), c.note).toBe(c.expected);
+       });
+     });
      ```
 
 ---
